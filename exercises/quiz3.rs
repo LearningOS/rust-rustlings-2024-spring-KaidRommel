@@ -16,9 +16,9 @@
 //
 // Execute `rustlings hint quiz3` or use the `hint` watch subcommand for a hint.
 
+//
 
-
-pub struct ReportCard<T: std::fmt::Display> {
+pub struct ReportCard<T> {
     pub grade: T,
     pub student_name: String,
     pub student_age: u8,
@@ -50,9 +50,8 @@ mod tests {
 
     #[test]
     fn generate_alphabetic_report_card() {
-        // TODO: Make sure to change the grade here after you finish the exercise.
         let report_card = ReportCard {
-            grade: "A+",
+            grade: "A+".to_string(),
             student_name: "Gary Plotter".to_string(),
             student_age: 11,
         };

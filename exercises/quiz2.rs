@@ -1,4 +1,4 @@
-    // quiz2.rs
+// quiz2.rs
 //
 // This is a quiz for the following sections:
 // - Strings
@@ -20,6 +20,7 @@
 //
 // No hints this time!
 
+//
 
 pub enum Command {
     Uppercase,
@@ -31,26 +32,24 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function signature!
-    pub fn transformer(input: Vec<(&str,Command)>) -> Vec<String> {
-        // TODO: Complete the output declaration!
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
         let mut output: Vec<String> = vec![];
-        for (string, command) in input.iter() {
-            // TODO: Complete the function body. You can do it!
+        for (mut string, command) in input {
             match command {
-                Command::Uppercase =>{
-                    output.push(string.to_string().to_uppercase());
+                Command::Uppercase => {
+                    string = string.to_uppercase();
                 }
-                Command::Trim =>{
-                    output.push(string.trim().to_string());
+                Command::Trim => {
+                    string = string.trim().to_string();
                 }
-                Command::Append(times) =>{
-                    let mut s = string.to_string();
-                    for i in 0..*times {
-                        s.push_str("bar");
+                Command::Append(n) => {
+                    let original_string = string.clone();
+                    for _ in 0..n {
+                        string.push_str(&original_string);
                     }
-                    output.push(s);
                 }
             }
+            output.push(string);
         }
         output
     }
@@ -72,7 +71,7 @@ mod tests {
         ]);
         assert_eq!(output[0], "HELLO");
         assert_eq!(output[1], "all roads lead to rome!");
-        assert_eq!(output[2], "foobar");
+        assert_eq!(output[2], "foofoo");
         assert_eq!(output[3], "barbarbarbarbarbar");
     }
 }

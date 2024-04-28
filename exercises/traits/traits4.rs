@@ -7,7 +7,7 @@
 // Execute `rustlings hint traits4` or use the `hint` watch subcommand for a
 // hint.
 
-
+//
 
 pub trait Licensed {
     fn licensing_info(&self) -> String {
@@ -22,8 +22,7 @@ struct OtherSoftware {}
 impl Licensed for SomeSoftware {}
 impl Licensed for OtherSoftware {}
 
-// YOU MAY ONLY CHANGE THE NEXT LINE
-fn compare_license_types<T1: Licensed,T2:Licensed>(software: T1, software_two: T2) -> bool {
+fn compare_license_types<T: Licensed, U: Licensed>(software: T, software_two: U) -> bool {
     software.licensing_info() == software_two.licensing_info()
 }
 

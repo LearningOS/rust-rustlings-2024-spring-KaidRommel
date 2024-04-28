@@ -14,7 +14,7 @@
 // Execute `rustlings hint hashmaps2` or use the `hint` watch subcommand for a
 // hint.
 
-
+// 
 
 use std::collections::HashMap;
 
@@ -37,7 +37,9 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
     ];
 
     for fruit in fruit_kinds {
-        basket.entry(fruit).or_insert(3);
+        if !basket.contains_key(&fruit) {
+            basket.insert(fruit, 1);
+        }
     }
 }
 
@@ -89,3 +91,4 @@ mod tests {
         }
     }
 }
+

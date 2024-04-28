@@ -5,7 +5,7 @@
 // Execute `rustlings hint strings1` or use the `hint` watch subcommand for a
 // hint.
 
-
+// 
 
 fn main() {
     let answer = current_favorite_color();
